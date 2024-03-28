@@ -24,7 +24,7 @@ function App() {
     return (
         <div className="w-full flex justify-between">
             <DestinationDisplay dests={dests}/>
-            <AddDest />
+            <AddDest getAllDestinations={getAllDestinations}/>
         </div>
     )
 }
