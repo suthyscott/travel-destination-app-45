@@ -8,12 +8,14 @@ import { useState, useEffect } from "react"
 function App() {
     const [dests, setDests] = useState([])
 
-    const getAllDestinations = () => {
-        axios.get(`http://localhost:4545/api/destinations?apiKey=${import.meta.env.VITE_APP_API_KEY}`)
-            .then(res => {
-                console.log(res.data)
-                setDests(res.data)
-            })
+    const getAllDestinations = async () => {
+        let res = await axios.get(`http://localhost:4545/api/destinations?apiKey=${import.meta.env.VITE_APP_API_KEY}`)
+        setDests(res.data)
+
+            // .then(res => {
+            //     console.log(res.data)
+            //     setDests(res.data)
+            // })
     }
 
     useEffect(() => {
