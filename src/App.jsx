@@ -1,32 +1,20 @@
 import "./App.css"
 import DestinationDisplay from "./DestinationDisplay"
 import AddDest from "./AddDest"
-import axios from "axios"
-import { useState, useEffect } from "react"
+import {Routes, Route} from 'react-router-dom'
+import Header from "./Header"
 
 
 function App() {
-    const [dests, setDests] = useState([])
-
-    const getAllDestinations = async () => {
-        let res = await axios.get(`http://localhost:4545/api/destinations?apiKey=${import.meta.env.VITE_APP_API_KEY}`)
-        setDests(res.data)
-
-            // .then(res => {
-            //     console.log(res.data)
-            //     setDests(res.data)
-            // })
-    }
-
-    useEffect(() => {
-        getAllDestinations()
-    }, [])
     
-
     return (
         <div className="w-full flex justify-between">
-            <DestinationDisplay dests={dests}/>
-            <AddDest getAllDestinations={getAllDestinations}/>
+            <Header/>
+            <Routes>
+                <Route index element={<DestinationDisplay/>}/>
+                <Route path="addDestination" element={<AddDest/>}/>
+                {/* <Route path="/destDetails/:id" element={}/> */}
+            </Routes>
         </div>
     )
 }

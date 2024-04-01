@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
 
-const AddDest = ({getAllDestinations}) => {
+const AddDest = () => {
   const [name, setName] = useState('')
   const [imageURL, setImageURL] = useState('')
   const [notes, setNotes] = useState('')
@@ -19,7 +19,7 @@ const AddDest = ({getAllDestinations}) => {
 
     axios.post(`http://localhost:4545/api/destinations?apiKey=${import.meta.env.VITE_APP_API_KEY}`, body)
       .then(res => {
-        getAllDestinations()
+        alert('Your destination has been added')
       })
       .catch(err => console.log(err))
   }
