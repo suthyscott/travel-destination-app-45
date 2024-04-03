@@ -26,9 +26,16 @@ const DestDetails = () => {
 
     console.log(dest)
 
-    return <div>
-        {dest.name}
-    </div>
+    return (
+        <div className="flex w-full p-[5%]">
+            <img src={dest.imageURL} className="w-1/2"/>
+            <div className="w-1/2 ml-[5%]">
+                <h1 className="text-5xl">{dest.name}</h1>
+                <p className="text-xl my-9">International: {dest.international ? "True" : "False"}</p>
+                <p>{dest.notes}</p>
+            </div>
+        </div>
+    )
 }
 
 export default DestDetails
