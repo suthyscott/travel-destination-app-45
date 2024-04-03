@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const DestCard = ({dest}) => {
   return (
@@ -7,6 +8,7 @@ const DestCard = ({dest}) => {
         <img src={dest.imageURL}/>
         <p>International: {dest.international ? "True" : "False"}</p>
         <p>{dest.notes}</p>
+        <NavLink to={`/destDetails/${dest.id}`}>See Details</NavLink>
     </div>
   )
 }
